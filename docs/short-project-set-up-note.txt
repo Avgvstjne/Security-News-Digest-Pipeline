@@ -1,0 +1,22 @@
+# Get the project into GitHub from VS Code
+
+1. Create the project folder. Make a folder like "sec-news-digest", then in VS Code use File → Open Folder and select it. Save the downloaded sec_digest.py into it.
+
+2. Install Git if needed. Open the terminal in VS Code (Ctrl+) and run git --version`. If it isn't recognized, install Git for Windows from git-scm.com, then restart VS Code.
+
+3. Initialize the repo. Click the Source Control icon in the left sidebar and choose Initialize Repository. (Or run git init in the terminal.)
+
+4. Add a .gitignore. Create a file named .gitignore containing:
+
+digests/
+__pycache__/
+
+This keeps the local HTML output out of the repo. Don't ignore seen.json, since the workflow will need to commit it.
+
+5. Commit. In Source Control, type a message like "Initial commit", click the + next to the files to stage them, then click Commit.
+
+6. Publish to GitHub. Click Publish Branch. VS Code will ask you to sign in to GitHub in your browser. Choose a private repository when it asks, and name it.
+
+# Creating the Gmail app password and storing it as GitHub Secrets.
+
+Note: An app password gives full sign-in access to that Gmail account's mail. If you'd rather limit the exposure, create a separate Gmail account just for sending (e.g. `yourname.digest@gmail.com`) and use your main address as the recipient. It's optional, but it's the cleaner setup.
