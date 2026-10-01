@@ -1,0 +1,41 @@
+name: Security digest
+
+on:
+
+  workflow_dispatch:   # adds a "Run workflow" button for manual testing
+
+# Lets the job commit seen.json back to the repo. Nothing else is granted.
+permissions:
+  contents: write
+
+# Never run two digests at once (avoids clashing commits to seen.json)
+concurrency:
+  group: sec-news-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build and email digest
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+        run: python sec_news_digest.py --no-open --email
+
+      - name: Save seen items back to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seen.json
+          git diff --staged --quiet || (git commit -m "Update seen items" && git push)
