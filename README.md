@@ -54,7 +54,7 @@ flowchart LR
 
 ## Running it yourself
 
-1. Fork or copy this repo into a **private** repository.
+1. Use **private** repository, also [see short note](docs/short-project-set-up-note.txt)
 2. Create a Gmail app password (requires 2-Step Verification) for a sending account.
 3. In the repo, go to **Settings → Secrets and variables → Actions** and add:
    - `GMAIL_USER`: the sending address
@@ -63,7 +63,7 @@ flowchart LR
 4. Adjust the `FEEDS` and `KEYWORDS` blocks at the top of `sec_digest.py`.
 5. Run the workflow manually from the **Actions** tab to test, then let the schedule take over.
 
-To try it locally without email: `python sec_digest.py`. This writes an HTML file to `digests/` and opens it in your browser.
+To try it locally without email: [python sec_news_digest.py](sec_news_digest.py). This writes an HTML file to [ddigests/](ddigests.yml) and opens it in your browser.
 
 > The scheduled trigger in this public copy is intentionally disabled. The live pipeline runs from a private repository, since it depends on my credentials.
 
