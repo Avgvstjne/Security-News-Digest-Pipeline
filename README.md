@@ -63,7 +63,7 @@ flowchart LR
 4. Adjust the `FEEDS` and `KEYWORDS` blocks at the top of `sec_digest.py`.
 5. Run the workflow manually from the **Actions** tab to test, then let the schedule take over.
 
-To try it locally without email: [python sec_news_digest.py](docs/sec_news_digest.py). This writes an HTML file to [ddigests/](docs/ddigests.yml) and opens it in your browser.
+To try it locally without email: [python sec_news_digest.py](docs/sec_news_digest.py). This writes an HTML file to [ddigests/](docs/ddigest.yml) and opens it in your browser.
 
 > The scheduled trigger in this public copy is intentionally disabled. The live pipeline runs from a private repository, since it depends on my credentials.
 
