@@ -2,7 +2,7 @@
 
 A small, dependency-free pipeline that collects cybersecurity news and newly exploited vulnerabilities each morning, ranks them by relevance, and emails me a single HTML digest. It runs entirely on GitHub Actions, so nothing needs to stay powered on.
 
-![Sample digest](docs/sample-digest.png)
+![News digest](docs/Screenshot 2026-10-01 162220.png)
 
 ## What it does
 
